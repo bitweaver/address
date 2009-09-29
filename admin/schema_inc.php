@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_address/admin/schema_inc.php,v 1.1 2009/09/23 15:16:44 spiderr Exp $
+ * @version $Header: /cvsroot/bitweaver/_bit_address/admin/schema_inc.php,v 1.2 2009/09/29 18:50:04 dansut Exp $
  * @package address
  */
 global $gBitInstaller;
@@ -273,20 +273,21 @@ $gBitInstaller->registerSchemaDefault(ADDRESS_PKG_NAME, array(
 "INSERT INTO `".$country_table."` VALUES(237,'Zaire', 'ZR', 'ZAR', '180', 'y')",
 "INSERT INTO `".$country_table."` VALUES(238,'Zambia', 'ZM', 'ZMB', '894', 'y')",
 "INSERT INTO `".$country_table."` VALUES(239,'Zimbabwe', 'ZW', 'ZWE', '716', 'y')",
-// FIELDS_TBL: fieldname, country_id, description, helptext, type, typopt, maxlen, options, defval, is_required, rule
-"INSERT INTO `".$fields_table."` VALUES('postcode',0,'Postal Code','Country assigned code for address (ZIP, postcode, ...)','text','',16,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('region',0,'Region','Area of country for address (State, County, ...)','text','',64,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('town',0,'Town/City','Name of urban area address located in','text','',64,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('street2',0,'Street Extra','Any additional location data','text','',64,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('street1',0,'Street Address','Location name/number and street name','text','',64,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('type_bits',0,'Location Type','Uses of this location','text','',0,'','','n','Business,Home')",
-"INSERT INTO `".$fields_table."` VALUES('delivery_bits',0,'Delivery Options','Types of delivery accepted at location','text','',0,'','','n','Carrier,Post')",
-"INSERT INTO `".$fields_table."` VALUES('postcode',222,'Postcode','UK postal code, 5-8 alphanumerics with space in middle','text','',16,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('postcode',223,'ZIP code','US postal code, 5digits followed by optional -4digits','text','',16,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('region',222,'County','UK Postal County name','text','',64,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('region',223,'State','US State, as 2 letter abbreviation or in full','text','',64,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('town',222,'Town','Town or City locality name in the UK','text','',64,'','','n','')",
-"INSERT INTO `".$fields_table."` VALUES('town',223,'City','Name of urban area in the US','text','',64,'','','n','')",
+// FIELDS_TBL: fieldname, country_id, description, helptext, type, typopt, maxlen, options, defval, is_required, rule, fieldorder
+"INSERT INTO `".$fields_table."` values('country_id',0,'Country',NULL,'options',NULL,0,'C,BitAddressCountry,country_name,y',NULL,'y',NULL, 1)",
+"INSERT INTO `".$fields_table."` VALUES('postcode',0,'Postal Code','Country assigned code for address (ZIP, postcode, ...)','text','',16,'','','n','',10)",
+"INSERT INTO `".$fields_table."` VALUES('region',0,'Region','Area of country for address (State, County, ...)','text','',64,'','','n','',20)",
+"INSERT INTO `".$fields_table."` VALUES('town',0,'Town/City','Name of urban area address located in','text','',64,'','','n','',30)",
+"INSERT INTO `".$fields_table."` VALUES('street2',0,'Street Extra','Any additional location data','text','',64,'','','n','',40)",
+"INSERT INTO `".$fields_table."` VALUES('street1',0,'Street Address','Location name/number and street name','text','',64,'','','n','',50)",
+"INSERT INTO `".$fields_table."` VALUES('type_bits',0,'Location Type','Uses of this location','checkboxes','',0,'0,Business,Home','','n','',60)",
+"INSERT INTO `".$fields_table."` VALUES('delivery_bits',0,'Delivery Options','Types of delivery accepted at location','checkboxes','',0,'0,Carrier,Post','','n','',70)",
+"INSERT INTO `".$fields_table."` VALUES('postcode',222,'Postcode','UK postal code, 5-8 alphanumerics with space in middle','text','',16,'','','n','',NULL)",
+"INSERT INTO `".$fields_table."` VALUES('postcode',223,'ZIP code','US postal code, 5digits followed by optional -4digits','text','',16,'','','n','',NULL)",
+"INSERT INTO `".$fields_table."` VALUES('region',222,'County','UK Postal County name','text','',64,'','','n','',NULL)",
+"INSERT INTO `".$fields_table."` VALUES('region',223,'State','US State, as 2 letter abbreviation or in full','text','',64,'','','n','',NULL)",
+"INSERT INTO `".$fields_table."` VALUES('town',222,'Town','Town or City locality name in the UK','text','',64,'','','n','',NULL)",
+"INSERT INTO `".$fields_table."` VALUES('town',223,'City','Name of urban area in the US','text','',64,'','','n','',NULL)",
 ));
 
 // User Permissions

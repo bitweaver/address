@@ -1,11 +1,11 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.1 2009/09/23 15:16:44 spiderr Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.2 2009/09/29 18:50:04 dansut Exp $
 /**
  * Address, class to hold location data and functionality for manipulating
  *
  * date created 2009
  * @author Daniel Sutcliffe <dansut@lrcnh.com>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  * @package address
  */
 
@@ -42,7 +42,7 @@ class BitAddress extends LibertyForm {
 			defval C(16),
 			is_required C(1),
 			rule C(64),
-			order I4",
+			fieldorder I4",
 		);
 	const DATA_TBL_SEQ = 'address_data_id_seq';
 	protected static $mSequences = array(
@@ -229,7 +229,7 @@ class BitAddress extends LibertyForm {
 			foreach($ret as $key => $val) {
 				$save = $fields[$key];
 				$fields[$key] = $val;
-				foreach(array('order') as $savekey) {
+				foreach(array('fieldorder') as $savekey) {
 					if($fields[$key][$savekey] == NULL) $fields[$key][$savekey] = $save[$savekey];
 				}
 			}
@@ -332,8 +332,8 @@ class BitAddress extends LibertyForm {
 
 // ordercomp() helper function used by uasort() call in setupFields()
 function ordercmp($a, $b) {
-	if($a['order'] == $b['order']) return 0;
-	return ($a['order'] < $b['order']) ? -1 : 1;
+	if($a['fieldorder'] == $b['fieldorder']) return 0;
+	return ($a['fieldorder'] < $b['fieldorder']) ? -1 : 1;
 }
 
 /* vim: :set fdm=marker : */
