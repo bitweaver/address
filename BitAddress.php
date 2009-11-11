@@ -1,11 +1,11 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.2 2009/09/29 18:50:04 dansut Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.3 2009/11/11 15:32:40 dansut Exp $
 /**
  * Address, class to hold location data and functionality for manipulating
  *
  * date created 2009
  * @author Daniel Sutcliffe <dansut@lrcnh.com>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  * @package address
  */
 
@@ -282,6 +282,8 @@ class BitAddress extends LibertyForm {
 					// Nothing needs doing
 					break;
 			}
+			// Database y/n fields translated into booleans
+			if($field['is_required'] == 'y') $field['required'] = TRUE;
 		}
 		return $fields;
 	} // }}} setupFields()
