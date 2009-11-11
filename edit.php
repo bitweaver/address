@@ -1,5 +1,5 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/edit.php,v 1.1 2009/09/23 15:16:44 spiderr Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/edit.php,v 1.2 2009/11/11 15:19:44 dansut Exp $
 
 // Initialization
 require_once('../bit_setup_inc.php');
@@ -19,9 +19,6 @@ if($gContent->isValid()) {
 // Set up access to edit services needed by Address
 $gContent->invokeServices('content_edit_function');
 
-$fields = $gContent->getFields();
-$gBitSmarty->assign_by_ref('fields', $fields);
-
 // Check if the page has changed
 if(!empty($_REQUEST["save_address"])) {
 	// Check if all Request values are delivered, and if not, set them to avoid error messages.
@@ -32,6 +29,9 @@ if(!empty($_REQUEST["save_address"])) {
 		$gBitSmarty->assign_by_ref('errors', $gContent->mErrors);
 	}
 }
+
+// Load field attributes
+$gBitSmarty->assign_by_ref('fields', $gContent->getFields());
 
 // Display the template
 $gBitSystem->display('bitpackage:address/edit.tpl', tra('Address'), array('display_mode' => 'edit'));
