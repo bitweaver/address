@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: remove.php,v 1.1 2009/09/23 15:16:44 spiderr Exp $
+ * $Id: remove.php,v 1.2 2009/11/11 15:29:17 dansut Exp $
  * @package address
  * @subpackage 
  */
@@ -19,7 +19,7 @@ $gContent->verifyExpungePermission();
 
 if(isset($_REQUEST["confirm"])) {
 	if($gContent->expunge()) {
-		bit_redirect(BIT_ROOT_URL);
+		bit_redirect(ADDRESS_PKG_URL);
 	} else {
 		vd($gContent->mErrors);
 	}
