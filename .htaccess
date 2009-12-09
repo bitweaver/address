@@ -1,9 +1,13 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine  on
-    # Uncomment this if mod_rewrites are not working for you. some hosting services have cranky mod_rewrite
-    #RewriteBase /address/
-    RewriteCond %{SCRIPT_FILENAME}              -f [OR]
-    RewriteCond %{SCRIPT_FILENAME}/index.php    -f
-    RewriteRule ^(.*)$                          - [L]
-    RewriteRule ^(.*)$  index.php?address_id=$1  [L,QSA]
+	RewriteEngine  on
+#	Uncomment this line if you have a crappy host
+#	RewriteBase /address/
+#	RewriteRule ^([0-9]+)$  index.php?address_id=$1  [L]
+	RewriteCond %{SCRIPT_FILENAME}  -f [OR]
+	RewriteCond %{SCRIPT_FILENAME}/index.php    -f
+	RewriteRule ^(.*)$            - [L]
+	RewriteRule ^remove/(.*)$  remove.php?address_id=$1  [L]
+	RewriteRule ^edit/(.*)$  edit.php?address_id=$1  [L]
+	RewriteRule ^view/(.*)$  index.php?address_id=$1  [L]
+	RewriteRule ^(.*)$  index.php?address_id=$1  [L]
 </IfModule>

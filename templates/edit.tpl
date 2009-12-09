@@ -1,9 +1,9 @@
-{* $Header: /cvsroot/bitweaver/_bit_address/templates/edit.tpl,v 1.1 2009/09/23 15:16:44 spiderr Exp $ *}
+{* $Header: /cvsroot/bitweaver/_bit_address/templates/edit.tpl,v 1.2 2009/12/09 21:59:53 dansut Exp $ *}
 {strip}
 <div class="floaticon">
 	{bithelp}
 	{if $gContent->hasExpungePermission() && $gContent->isValid()}
-		<a title="{tr}Remove this Address{/tr}" href="{$smarty.const.ADDRESS_PKG_URL}remove.php?address_id={$gContent->mInfo.address_id}">{biticon ipackage="icons" iname="edit-delete" iexplain="Remove Address"}</a>
+		<a title="{tr}Remove this Address{/tr}" href="{$gContent->getRemoveUrl()}">{biticon ipackage="icons" iname="edit-delete" iexplain="Remove Address"}</a>
 	{/if}
 	{assign var=iconsize value=$gBitSystem->getConfig("site_icon_size")}
 	{biticon ipackage="address" iname="pkg_address" iexplain="address" iclass="$iconsize icon"}
@@ -11,7 +11,7 @@
 
 <div class="admin address">
 	<div class="header">
-		<h1>{if $gContent->isValid()}{tr}Edit Address{/tr}{else}{tr}Create New Address{/tr}{/if}</h1>
+		<h1>{if $gContent->isValid()}{tr}Edit{/tr}{else}{tr}Create New{/tr}{/if} {tr}Address{/tr}</h1>
 	</div>
 
 	<div class="body">

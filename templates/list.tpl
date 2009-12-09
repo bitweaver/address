@@ -1,4 +1,4 @@
-{* $Header: /cvsroot/bitweaver/_bit_address/templates/list.tpl,v 1.1 2009/09/23 15:16:44 spiderr Exp $ *}
+{* $Header: /cvsroot/bitweaver/_bit_address/templates/list.tpl,v 1.2 2009/12/09 21:59:53 dansut Exp $ *}
 {strip}
 {assign var=awidth value=85}
 {if $gBitSystem->isFeatureActive( 'address_list_country' )}
@@ -36,13 +36,13 @@
 				{foreach item=address from=$addressList}
 					{assign var=id value=`$address.id`}
 					<tr class="{cycle values="even,odd"}">
-						<td class="listright"><a href="{$smarty.const.ADDRESS_PKG_URL}index.php?address_id={$id}" title="{$id}">{$id}</a></td>
+						<td class="listright"><a href="{$address.display_url}" title="{$id}">{$id}</a></td>
 						<td class="listleft">{$address.text|escape}</td>
 						{if $cwidth}<td class="listcntr">{$address.country|escape}</td>{/if}
 						{if $dwidth}<td class="listleft">{$address.title|escape}</td>{/if}
 						<td class="actionicon">
 						{if $gBitUser->hasPermission( 'p_address_update' )}
-							{smartlink ititle="Edit" ifile="edit.php" ibiticon="icons/accessories-text-editor" address_id=$id}
+							<a title="{tr}Edit{/tr}" href="{$address.edit_url}">{biticon ipackage="icons" iname="accessories-text-editor" iexplain="Edit Address"}</a>
 						{/if}
 						</td>
 					</tr>

@@ -1,11 +1,11 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.3 2009/11/11 15:32:40 dansut Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.4 2009/12/09 21:59:53 dansut Exp $
 /**
  * Address, class to hold location data and functionality for manipulating
  *
  * date created 2009
  * @author Daniel Sutcliffe <dansut@lrcnh.com>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  * @package address
  */
 
@@ -173,6 +173,9 @@ class BitAddress extends LibertyForm {
 					'text'		=> self::formatDataShort($res),
 					'country'	=> $res['country'],
 					'title'		=> $res['title'],
+					'display_url'=> self::getUrl(ADDRESS_PKG_URL, 'address_id', $res['address_id']),
+					'edit_url'	=> self::getUrl(ADDRESS_PKG_URL, 'address_id', $res['address_id'], 'edit'),
+					'remove_url'=> self::getUrl(ADDRESS_PKG_URL, 'address_id', $res['address_id'], 'remove'),
 				);
 		}
 
