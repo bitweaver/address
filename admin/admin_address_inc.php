@@ -1,31 +1,43 @@
 <?php
-// @version $Header: /cvsroot/bitweaver/_bit_address/admin/admin_address_inc.php,v 1.1 2009/09/23 15:16:44 spiderr Exp $
+/**
+ * @version $Header: /cvsroot/bitweaver/_bit_address/admin/admin_address_inc.php,v 1.2 2010/01/14 21:49:42 dansut Exp $
+ * @package address
+ */
 require_once(ADDRESS_PKG_PATH.'BitAddress.php');
 
-$formAddressLists = array(
-	"address_list_country" => array(
-		'label' => 'Country',
-		'note' => 'Display the country.',
-	),
-	"address_list_description" => array(
-		'label' => 'Description',
-		'note' => 'Display the address description field.',
-	),
-);
-$gBitSmarty->assign('formAddressLists', $formAddressLists);
+$pkgname = ADDRESS_PKG_NAME;
+$grpname = $pkgname.'_admin';
+$gBitSmarty->assign('grpname', $grpname);
+$list_grpname = $grpname.'_list';
+$gBitSmarty->assign('list_grpname', $list_grpname);
+$country_grpname = $grpname.'_country';
+$gBitSmarty->assign('country_grpname', $country_grpname);
 
 // Process the form if we've made some changes
-if(!empty($_REQUEST['address_settings'])) {
-	$addressToggles = array_merge($formAddressLists);
-	foreach($addressToggles as $item => $data) {
-		simple_set_toggle($item, ADDRESS_PKG_NAME);
-	}
-	@BitAddressCountry::setDefault($_REQUEST['address']['country_def']);
-	@BitAddressCountry::setActive($_REQUEST['address']['countries']);
+if(isset($_REQUEST[$grpname.'_submit'])) {
+	LibertyForm::storeConfigs($_REQUEST[$list_grpname], $pkgname);
+	@BitAddressCountry::setDefault($_REQUEST[$country_grpname]['country_def']);
+	@BitAddressCountry::setActive($_REQUEST[$country_grpname]['countries']);
 }
 
+$list_fields = array(
+	"list_country" => array(
+		'description' => 'Country',
+		'helptext' => 'Display the country.',
+		'type' => 'checkbox',
+		'value' => $gBitSystem->getConfig($pkgname.'_list_country'),
+	),
+	"list_description" => array(
+		'description' => 'Description',
+		'helptext' => 'Display the address description field.',
+		'type' => 'checkbox',
+		'value' => $gBitSystem->getConfig($pkgname.'_list_description'),
+	),
+);
+$gBitSmarty->assign('list_fields', $list_fields);
+
 $countries = @BitAddressCountry::getPossibles('country_name');
-$fields = array(
+$country_fields = array(
 	"country_def" => array(
 		"description" => "Default Country",
 		"type" => "options",
@@ -44,5 +56,5 @@ $fields = array(
 		"helptext" => "Select the multiple countries available by holding down Shift/Ctrl."
 	)
 );
-$gBitSmarty->assign_by_ref('fields', $fields);
+$gBitSmarty->assign_by_ref('country_fields', $country_fields);
 ?>

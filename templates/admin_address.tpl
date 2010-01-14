@@ -1,28 +1,22 @@
+{* $Header: /cvsroot/bitweaver/_bit_address/templates/admin_address.tpl,v 1.2 2010/01/14 21:49:42 dansut Exp $ *}
 {strip}
 {form}
+	<input type="hidden" name="page" value="{$page}" />
 	{jstabs}
 		{jstab title="Listing"}
 			{legend legend="Address List Field Visibility Settings"}
-				<input type="hidden" name="page" value="{$page}" />
-				{foreach from=$formAddressLists key=item item=output}
-					<div class="row">
-						{formlabel label=`$output.label` for=$item}
-						{forminput}
-							{html_checkboxes name="$item" values="y" checked=$gBitSystem->getConfig($item) labels=false id=$item}
-							{formhelp note=`$output.note` page=`$output.page`}
-						{/forminput}
-					</div>
-				{/foreach}
+				{formfields fields=$list_fields grpname=$list_grpname}
 			{/legend}
 		{/jstab}
 
 		{jstab title="Country"}
 			{legend legend="Country Settings"}
-				{formfields fields=$fields errors=$errors grpname="address"}
+				{formfields fields=$country_fields errors=$errors grpname=$country_grpname}
 			{/legend}
 		{/jstab}
+
 		<div class="row submit">
-			<input type="submit" name="address_settings" value="{tr}Change preferences{/tr}" />
+			<input type="submit" name="{$grpname}_submit" value="{tr}Change preferences{/tr}" />
 		</div>
 	{/jstabs}
 {/form}

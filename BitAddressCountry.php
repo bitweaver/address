@@ -1,12 +1,12 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddressCountry.php,v 1.1 2009/09/23 15:16:44 spiderr Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/BitAddressCountry.php,v 1.2 2010/01/14 21:49:41 dansut Exp $
 /**
 * BitAddressCountry is an object designed to represent a country and it's data.
 * The object also will allow access and control of the available countries
 *
 * date created: 2009-07-09
 * @author Daniel Sutcliffe
-* @version $Revision: 1.1 $
+* @version $Revision: 1.2 $
 * @package address
 * @class BitAddressCountry
 */
@@ -233,11 +233,11 @@ class BitAddressCountry extends BitBase {
 
 	// {{{ setDefault() get an array of countries
 	/**
-	 * @return the id of the default country
+	 * @param $pValue int containing the id to set the default country to
 	 */
 	public static function setDefault($pValue) {
 		global $gBitSystem;
-		$gBitSystem->setConfig('address_country_default', $pValue);
+		$gBitSystem->storeConfig('address_country_default', $pValue, ADDRESS_PKG_NAME);
 		return;
 	} // }}} setDefault()
 
