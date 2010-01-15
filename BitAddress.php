@@ -1,11 +1,11 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.4 2009/12/09 21:59:53 dansut Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.5 2010/01/15 22:57:28 dansut Exp $
 /**
  * Address, class to hold location data and functionality for manipulating
  *
  * date created 2009
  * @author Daniel Sutcliffe <dansut@lrcnh.com>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  * @package address
  */
 
@@ -84,7 +84,7 @@ class BitAddress extends LibertyForm {
 	 */
 	public function load() {
 		$ret = parent::load();
-		if($ret) $this->mFields = BitAddress::setupFields($this->mInfo['country_id']);
+		if($ret && isset($this->mInfo['country_id'])) $this->mFields = BitAddress::setupFields($this->mInfo['country_id']);
 		return $ret;
 	}
 	// }}} load()
@@ -95,7 +95,8 @@ class BitAddress extends LibertyForm {
 	 * @return boolean TRUE on success, FALSE on failure - mErrors will contain reason for failure
 	 */
 	public function store(&$pParamHash) {
-		if($this->mInfo['country_id'] != $pParamHash['country_id']) {
+		if(!isset($this->mInfo['country_id']) ||
+		   ($this->mInfo['country_id'] != $pParamHash['country_id'])) {
 			$this->mFields = BitAddress::setupFields($pParamHash['country_id']);
 		}
 		return parent::store($pParamHash);
