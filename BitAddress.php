@@ -1,11 +1,11 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.5 2010/01/15 22:57:28 dansut Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.6 2010/01/20 21:23:41 dansut Exp $
 /**
  * Address, class to hold location data and functionality for manipulating
  *
  * date created 2009
  * @author Daniel Sutcliffe <dansut@lrcnh.com>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  * @package address
  */
 
@@ -291,6 +291,27 @@ class BitAddress extends LibertyForm {
 		}
 		return $fields;
 	} // }}} setupFields()
+
+	// {{{ getQuickData() quick return of this objects basic data
+	/**
+	 * @param int $pId the identifier for an object of this type
+	 * @return array hash of this objects DB fields
+	 */
+	public static function getQuickData($pId) {
+		global $gBitSystem;
+		$query = "SELECT * FROM `".BIT_DB_PREFIX.self::DATA_TBL."` WHERE (`address_id` = ?)";
+		return $gBitSystem->mDb->getRow($query, array($pId));
+	} // }}} getQuickData()
+
+	// {{{ getQuickDisplay() quick disply of object of this type without instantiating
+	/**
+	 * @param int $pId the identifier for an object of this type
+	 * @return string quick summary of object with Id
+	 */
+	public static function getQuickDisplay($pId) {
+		$ret = self::getQuickData($pId);
+		return ($ret ? self::formatDataShort($ret) : "Unknown Address");
+	} // }}} getQuickDisplay()
 
 	// {{{ formatDataShort() given an array of fields create a short formatted display string
 	/**
