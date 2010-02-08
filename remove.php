@@ -1,12 +1,12 @@
 <?php
 /**
- * $Id: remove.php,v 1.2 2009/11/11 15:29:17 dansut Exp $
+ * $Id: remove.php,v 1.3 2010/02/08 21:27:21 wjames5 Exp $
  * @package address
  * @subpackage 
  */
 
 // required setup
-require_once('../bit_setup_inc.php');
+require_once('../kernel/setup_inc.php');
 
 $gBitSystem->verifyPackage('address');
 include_once(ADDRESS_PKG_PATH.'lookup_inc.php');

@@ -1,8 +1,8 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/edit.php,v 1.2 2009/11/11 15:19:44 dansut Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/edit.php,v 1.3 2010/02/08 21:27:21 wjames5 Exp $
 
 // Initialization
-require_once('../bit_setup_inc.php');
+require_once('../kernel/setup_inc.php');
 
 // Is package installed and enabled
 $gBitSystem->verifyPackage('address');
