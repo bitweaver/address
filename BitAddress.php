@@ -1,11 +1,11 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.6 2010/01/20 21:23:41 dansut Exp $
+// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.7 2010/04/18 02:27:23 wjames5 Exp $
 /**
  * Address, class to hold location data and functionality for manipulating
  *
  * date created 2009
  * @author Daniel Sutcliffe <dansut@lrcnh.com>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  * @package address
  */
 
@@ -59,7 +59,7 @@ class BitAddress extends LibertyForm {
 		$this->mContentTypeGuid = self::CONTENT_TYPE_GUID;
 		$this->registerContentType(self::CONTENT_TYPE_GUID, array(
 			'content_type_guid'   => self::CONTENT_TYPE_GUID,
-			'content_description' => 'Street Address data',
+			'content_name' => 'Street Address data',
 			'handler_class'       => 'BitAddress',
 			'handler_package'     => 'address',
 			'handler_file'        => 'BitAddress.php',
