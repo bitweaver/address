@@ -1,12 +1,12 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddressCountry.php,v 1.2 2010/01/14 21:49:41 dansut Exp $
+// $Header$
 /**
 * BitAddressCountry is an object designed to represent a country and it's data.
 * The object also will allow access and control of the available countries
 *
 * date created: 2009-07-09
 * @author Daniel Sutcliffe
-* @version $Revision: 1.2 $
+* @version $Revision$
 * @package address
 * @class BitAddressCountry
 */

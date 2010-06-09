@@ -1,5 +1,5 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/edit.php,v 1.3 2010/02/08 21:27:21 wjames5 Exp $
+// $Header$
 
 // Initialization
 require_once('../kernel/setup_inc.php');

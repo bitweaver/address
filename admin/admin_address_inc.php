@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_address/admin/admin_address_inc.php,v 1.2 2010/01/14 21:49:42 dansut Exp $
+ * @version $Header$
  * @package address
  */
 require_once(ADDRESS_PKG_PATH.'BitAddress.php');

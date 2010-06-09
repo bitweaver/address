@@ -1,11 +1,11 @@
 <?php
-// $Header: /cvsroot/bitweaver/_bit_address/BitAddress.php,v 1.7 2010/04/18 02:27:23 wjames5 Exp $
+// $Header$
 /**
  * Address, class to hold location data and functionality for manipulating
  *
  * date created 2009
  * @author Daniel Sutcliffe <dansut@lrcnh.com>
- * @version $Revision: 1.7 $
+ * @version $Revision$
  * @package address
  */
 

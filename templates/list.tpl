@@ -1,4 +1,4 @@
-{* $Header: /cvsroot/bitweaver/_bit_address/templates/list.tpl,v 1.2 2009/12/09 21:59:53 dansut Exp $ *}
+{* $Header$ *}
 {strip}
 {assign var=awidth value=85}
 {if $gBitSystem->isFeatureActive( 'address_list_country' )}

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: remove.php,v 1.3 2010/02/08 21:27:21 wjames5 Exp $
+ * $Id$
  * @package address
  * @subpackage 
  */

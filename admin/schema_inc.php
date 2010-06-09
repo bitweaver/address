@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Header: /cvsroot/bitweaver/_bit_address/admin/schema_inc.php,v 1.2 2009/09/29 18:50:04 dansut Exp $
+ * @version $Header$
  * @package address
  */
 global $gBitInstaller;
