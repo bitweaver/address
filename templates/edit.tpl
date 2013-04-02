@@ -24,7 +24,7 @@
 
 						{formfields fields=$fields errors=$errors grpname="address"}
 
-						<div class="row">
+						<div class="control-group">
 							{formfeedback warning=$errors.title}
 							{formlabel label="Description" for="title"}
 							{forminput}
@@ -47,7 +47,7 @@
 				{* any service edit template tabs *}
 				{include file="bitpackage:liberty/edit_services_inc.tpl" serviceFile="content_edit_tab_tpl"}
 			{/jstabs}
-			<div class="row submit">
+			<div class="control-group submit">
 				<input type="submit" name="save_address"
 					value="{tr}{if $gContent->mInfo.address_id}Update{else}Create{/if} Address{/tr}" />
 			</div>
