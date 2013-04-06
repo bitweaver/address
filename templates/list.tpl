@@ -34,7 +34,7 @@
 					<th width="10%" class="listright">{tr}Actions{/tr}</th>
 				</tr>
 				{foreach item=address from=$addressList}
-					{assign var=id value=`$address.id`}
+					{assign var=id value=$address.id}
 					<tr class="{cycle values="even,odd"}">
 						<td class="listright"><a href="{$address.display_url}" title="{$id}">{$id}</a></td>
 						<td class="listleft">{$address.text|escape}</td>

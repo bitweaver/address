@@ -16,7 +16,7 @@ if($gBitSystem->isPackageActive('address')) {
 		$menuHash = array(
 			'package_name'  => ADDRESS_PKG_NAME,
 			'index_url'     => ADDRESS_PKG_URL.'index.php',
-			'menu_template' => 'bitpackage:address/menu.tpl',
+			'menu_template' => 'bitpackage:address/menu_address.tpl',
 		);
 		$gBitSystem->registerAppMenu($menuHash);
 	}
