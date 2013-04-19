@@ -38,7 +38,7 @@
 
 				{jstab title="Notes"}
 					{legend legend="Optional expanded details"}
-						{textarea name="address[edit]"}{$gContent->mInfo.data}{/textarea}
+						{textarea name="address[edit]" edit=$gContent->mInfo.data}
 						{* any simple service edit options *}
 						{include file="bitpackage:liberty/edit_services_inc.tpl" serviceFile="content_edit_mini_tpl"}
 					{/legend}
